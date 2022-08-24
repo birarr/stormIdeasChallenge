@@ -100,7 +100,7 @@ export const News: React.FC<NewsProps> = ({ category, search }) => {
             return null
           })}
         </div>
-        <div className="min-w-[50%] mt-56 max-w-xl md:w-full lg:w-full xl:w-11/12 sm:w-9/12">
+        <div className="min-w-[50%] mt-72 max-w-xl md:w-full lg:w-full xl:w-11/12 sm:w-9/12">
           {news?.map((item: Article, index: number) => {
             if (index !== 0) {
               return (

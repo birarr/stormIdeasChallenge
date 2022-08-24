@@ -6,9 +6,7 @@ export const fetchNews = async (
   page: number,
   pageSize: number
 ) => {
-  const response = await fetch(
-    `https://newsapi.org/v2/everything?q=${subject}&page=${page}&pageSize=${pageSize}&apiKey=${key2}`
-  )
+  const response = await fetch(``)
   const data = await response.json()
   return data
 }

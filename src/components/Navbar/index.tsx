@@ -2,9 +2,9 @@ import * as styles from './index.styles'
 import NewsLogo from '../../assets/AndersonPost.png'
 import Line from '../../assets/Line3.png'
 import { FaSearch } from 'react-icons/fa'
-import { AiOutlineAlignLeft } from 'react-icons/ai'
 import { NavbarProps } from './index.types'
 import { useState } from 'react'
+import { Sidebar } from '../Sidebar'
 
 export const Navbar: React.FC<NavbarProps> = ({ setSearch }) => {
   const [searchVisible, setSearchVisible] = useState(false)
@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ setSearch }) => {
 
   return (
     <div className={styles.container}>
-      <AiOutlineAlignLeft className={styles.outlineIcon} />
+      <Sidebar />
       <div className={styles.logo}>
         <img src={Line} alt="red line" className={styles.line} />
         <img src={NewsLogo} alt="news logo" />
