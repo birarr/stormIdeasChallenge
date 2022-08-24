@@ -7,10 +7,13 @@ export const author =
   'font-light text-xs leading-4 text-textLight mt-2 truncate max-w-[50%]'
 export const newsType = 'font-bold mb-4 leading-4'
 export const regularNews =
-  'grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:grid-cols-1'
-export const regularNewsTitle = 'font-semibold sm: mx-2'
-export const regularNewsImage = ''
+  'flex flex-col md:flex-row lg:flex-row w-11/12 flex-row items-center gap-4'
+export const regularNewsReverse =
+  'flex flex-col md:flex-row-reverse lg:flex-row-reverse w-11/12 flex-row items-center gap-4'
+export const regularNewsTitle = 'font-semibold sm: mx-2 text-textTitle'
+export const regularNewsImage = 'basis-1/2 w-full h-full object-cover'
 export const loadMoreButtonContainer =
   'flex justify-center w-full mb-6 bg-white'
 export const loadMoreButton =
   'bg-white text-redColor border-redColor rounded-3xl'
+// 'flex w-11/12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:grid-cols-1'

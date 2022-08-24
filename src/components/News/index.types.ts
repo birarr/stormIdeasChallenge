@@ -1,3 +1,4 @@
 export interface NewsProps {
-  subject?: string | 'Top story'
+  category?: string | 'Top story'
+  search?: string
 }
