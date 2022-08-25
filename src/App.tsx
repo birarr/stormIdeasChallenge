@@ -11,13 +11,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="navbar">
-        <Navbar setSearch={setSearch} />
-        <Divider />
-        <CategoriesComp setCategory={setCategory} category={category} />
-        <Divider />
-        <News category={category} search={search} />
-      </div>
+      <Navbar setSearch={setSearch} />
+      <Divider />
+      <CategoriesComp setCategory={setCategory} category={category} />
+      <Divider />
+      <News category={category} search={search} />
     </div>
   )
 }

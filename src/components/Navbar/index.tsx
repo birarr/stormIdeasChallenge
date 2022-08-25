@@ -9,7 +9,7 @@ import { Sidebar } from '../Sidebar'
 export const Navbar: React.FC<NavbarProps> = ({ setSearch }) => {
   const [searchVisible, setSearchVisible] = useState(false)
   const [searchValue, setSearchValue] = useState('')
-  console.log(searchValue)
+
   const handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
       setSearch(searchValue)

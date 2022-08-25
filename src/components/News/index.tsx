@@ -1,6 +1,6 @@
 import { fetchNews } from '../../services/requests'
 import { useInfiniteQuery, useQuery } from 'react-query'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { NewsProps } from './index.types'
 import { Categories, Article } from '../../utils/Types'
 import * as styles from './index.styles'
@@ -12,6 +12,7 @@ export const News: React.FC<NewsProps> = ({ category, search }) => {
   const [pageSize, setPageSize] = useState(11)
   const [news, setNews] = useState<Article[]>([])
   const [subject, setSubject] = useState('Top story')
+  const [featuredNewsTitle, setFeaturedNewsTitle] = useState('Breaking')
   var options: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     year: 'numeric',
@@ -19,31 +20,16 @@ export const News: React.FC<NewsProps> = ({ category, search }) => {
     day: 'numeric',
   }
 
-  console.log({ category })
-  console.log({ subject })
-  console.log({ search })
-  console.log({ page })
-
   const {
-    isIdle,
     data: newsData,
     status: newsStatus,
-    // fetchNextPage,
-    // hasNextPage,
     refetch,
-  } = useQuery(
-    ['news', subject, page],
-    () => fetchNews(subject, page, pageSize),
-    {
-      // getNextPageParam: () => true,
-      // enabled: page !== 1,
-    }
+  } = useQuery(['news', subject, page], () =>
+    fetchNews(subject, page, pageSize)
   )
-  console.log(subject === category)
 
   useEffect(() => {
     if (category) {
-      console.log('testtteeeeeeeeee')
       setPage(1)
       setNews([])
     }
@@ -70,16 +56,28 @@ export const News: React.FC<NewsProps> = ({ category, search }) => {
       return
     }
   }, [sortedNews, page])
-  console.log({ news })
+
+  const firstNewsTitle = useMemo(() => {
+    if (featuredNewsTitle === 'Breaking' && category === 'Top story') {
+      return featuredNewsTitle
+    } else {
+      setFeaturedNewsTitle(category)
+      return `LATEST ${featuredNewsTitle}`
+    }
+  }, [category, featuredNewsTitle])
+
   return (
     <>
       <div className={styles.container}>
+        {newsStatus === 'error' && <div>Error fetching data</div>}
         <div className="w-11/12 flex justify-center">
           {news?.map((item: Article, index: number) => {
             if (index === 0) {
               return (
                 <div className={styles.featuredNews} key={index}>
-                  <div className={styles.newsType}>Breaking news</div>
+                  <div className={styles.newsType}>
+                    {`${firstNewsTitle.toUpperCase()} NEWS`}
+                  </div>
                   <a href={item?.url!} target="_blank">
                     <div>
                       <img src={item?.urlToImage} alt="news" />

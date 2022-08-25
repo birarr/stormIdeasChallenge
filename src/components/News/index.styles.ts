@@ -16,4 +16,3 @@ export const loadMoreButtonContainer =
   'flex justify-center w-full mb-6 bg-white'
 export const loadMoreButton =
   'bg-white text-redColor border-redColor rounded-3xl'
-// 'flex w-11/12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:grid-cols-1'
