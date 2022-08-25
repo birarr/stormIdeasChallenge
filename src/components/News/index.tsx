@@ -61,7 +61,7 @@ export const News: React.FC<NewsProps> = ({ category, search }) => {
     if (featuredNewsTitle === 'Breaking' && category === 'Top story') {
       return featuredNewsTitle
     } else {
-      setFeaturedNewsTitle(category)
+      setFeaturedNewsTitle(category!)
       return `LATEST ${featuredNewsTitle}`
     }
   }, [category, featuredNewsTitle])
