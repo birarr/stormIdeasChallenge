@@ -1,4 +1,4 @@
-export enum Subjects {
+export enum Categories {
   Business = 'Business',
   Entertainment = 'Entertainment',
   General = 'General',
@@ -20,4 +20,5 @@ export interface Article {
   content?: string
   publishedAt?: Date
   author?: string
+  url?: string
 }
